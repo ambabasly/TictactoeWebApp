@@ -1,0 +1,46 @@
+﻿@model TictactoeWebApp.Models.GameWindow
+   
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<html>
+    <body>
+        
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Player details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">On-going game</a>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="card-body">
+            
+                <section>
+                    <h1 class="game--title">TicTacToe</h1>
+                    <div class="game--container">
+                        <div data-cell-index="0" class="cell"></div>
+                        <div data-cell-index="1" class="cell"></div>
+                        <div data-cell-index="2" class="cell"></div>
+                        <div data-cell-index="3" class="cell"></div>
+                        <div data-cell-index="4" class="cell"></div>
+                        <div data-cell-index="5" class="cell"></div>
+                        <div data-cell-index="6" class="cell"></div>
+                        <div data-cell-index="7" class="cell"></div>
+                        <div data-cell-index="8" class="cell"></div>
+                    </div>
+                    <h2 class="game--status"></h2>
+                    <button class="game--restart">Restart Game</button>
+                </section>
+            </div>
+        </div>
+
+    </body>
+
+</html>
