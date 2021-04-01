@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace TictactoeWebApp.Models
 {
-    public class GameWindow
+    public class LoginIDViewModel
     {
-
+        public string LoginID { get; set; }
+        public string LoginPwd { get; set; }
     }
 }

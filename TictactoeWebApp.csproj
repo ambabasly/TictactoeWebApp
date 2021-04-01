@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Images\Eya-tictactoe.png" />
+    <None Include="wwwroot\Images\1.png" />
   </ItemGroup>
 
   <ItemGroup>

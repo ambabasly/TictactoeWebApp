@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "LoginPage";
+}
+
+<div id="logreg-forms" class="login-dark">
+    <form class="form-signin" method="post">
+        <div class="illustration"><i class="navbar-toggler-icon ion-ios-locked-outline"></i></div>
+        <div class="form-group">
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email" name="LoginID" required />
+        </div>
+        <!--Sign in fields-->
+        <div class="form-group">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="LoginPwd" required />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block mb-4" type="submit"><i class="fas fa-sign-in-alt"></i>  Login</button>
+        </div><br />
+
+        <!-- Register button -->
+        <div>
+            <p>Not a member? <a asp-area="" asp-controller="Form" asp-action="Register">Register</a></p>
+            @*
+                <p>or sign up with:</p>
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-facebook-f"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-google"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-twitter"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-github"></i>
+            </button>
+                *@
+        </div>
+    </form>
+</div>

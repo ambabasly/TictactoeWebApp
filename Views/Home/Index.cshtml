@@ -2,13 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center card-mb-3">
-    <img class="card-img-top" src="~/Images/Eya-tictactoe.png" alt="Tictactoe image" />  
-</div>
+<div class="stock-photo container">
 
-<div class="row text-center" id="StartGame">
-        <div class="col-sm-6">
-            <div class="card">
+    <div class="img-fluid">
+        <img class="card-img-top" src="~/Images/1.jpg" alt="Tictactoe image" />
+    </div>
+
+    <div class="row text-center" id="StartGame">
+        <div class="col-sm-6 pt-5">
+            <div class="card h-100">
                 <div class="card-body">
                     <h5 class="card-title">Single Player</h5>
                     <p class="card-text">Play with the computer.</p>
@@ -16,13 +18,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="card">
+        <div class="col-sm-6 pt-5">
+            <div class="card h-100">
                 <div class="card-body">
                     <h5 class="card-title">Multiplayer</h5>
                     <p class="card-text">Here, you can play with a Friend.</p>
-                    <a asp-area="" asp-controller="GameWindow" asp-action="Index" class="btn btn-secondary">Click to Start</a>
+                    <a asp-area="" asp-controller="GameWindow" asp-action="PlayerDetails" class="btn btn-secondary">Click to Start</a>
                 </div>
             </div>
         </div>
+    </div>
+
+    
 </div>

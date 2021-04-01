@@ -12,10 +12,10 @@
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Player details</a>
+                        <a class="nav-link disabled" id="details">Player details</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">On-going game</a>
+                        <a class="nav-link active" id="play">On-going game</a>
                     </li>
                 </ul>
             </div>
@@ -35,8 +35,9 @@
                         <div data-cell-index="7" class="cell"></div>
                         <div data-cell-index="8" class="cell"></div>
                     </div>
-                    <h2 class="game--status"></h2>
-                    <button class="game--restart">Restart Game</button>
+                    <p class="game--status"></p>
+
+                    <button class="game--restart" onclick="newGame()">Restart Game</button>
                 </section>
             </div>
         </div>
