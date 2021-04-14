@@ -12,4 +12,5 @@ namespace TictactoeWebApp.Models
         public string LoginID { get; set; }
         public string LoginPwd { get; set; }
     }
+
 }

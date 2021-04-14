@@ -1,9 +1,15 @@
 ﻿@{
     ViewData["Title"] = "LoginPage";
 }
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.SuccessMessage
+    </div>
+}
 
 <div id="logreg-forms" class="login-dark">
-    <form class="form-signin" method="post">
+    <form action="/Form/Login" class="form-signin" method="post">
         <div class="illustration"><i class="navbar-toggler-icon ion-ios-locked-outline"></i></div>
         <div class="form-group">
             <input type="email" id="inputEmail" class="form-control" placeholder="Email" name="LoginID" required />
@@ -20,23 +26,23 @@
         <div>
             <p>Not a member? <a asp-area="" asp-controller="Form" asp-action="Register">Register</a></p>
             @*
-                <p>or sign up with:</p>
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-                <i class="fab fa-facebook-f"></i>
-            </button>
+                    <p>or sign up with:</p>
+                <button type="button" class="btn btn-primary btn-floating mx-1">
+                    <i class="fab fa-facebook-f"></i>
+                </button>
 
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-                <i class="fab fa-google"></i>
-            </button>
+                <button type="button" class="btn btn-primary btn-floating mx-1">
+                    <i class="fab fa-google"></i>
+                </button>
 
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-                <i class="fab fa-twitter"></i>
-            </button>
+                <button type="button" class="btn btn-primary btn-floating mx-1">
+                    <i class="fab fa-twitter"></i>
+                </button>
 
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-                <i class="fab fa-github"></i>
-            </button>
-                *@
+                <button type="button" class="btn btn-primary btn-floating mx-1">
+                    <i class="fab fa-github"></i>
+                </button>
+            *@
         </div>
     </form>
 </div>
