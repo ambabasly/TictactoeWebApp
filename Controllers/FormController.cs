@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.SqlServer.Management.Smo;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,21 +15,38 @@ namespace TictactoeWebApp.Controllers
 {
     public class FormController : Controller
     {
+        
         private readonly MySqlConnection mySqlConnection;
-        public FormController(MySqlConnection connection)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public FormController(MySqlConnection conn, IHttpContextAccessor httpContextAccessor)
         {
-            mySqlConnection = connection;
+            mySqlConnection = conn;
+            _httpContextAccessor = httpContextAccessor;
         }
+
+        //public FormController(IHttpContextAccessor httpContextAccessor)
+        //{
+        //    _httpContextAccessor = httpContextAccessor;
+        //}
 
         [HttpGet]
         public IActionResult LoginPage(LoginIDViewModel login)
-        {
-            return View(login);
+        {            
+            var isLoggedIn = _httpContextAccessor.HttpContext.Session.GetInt32("isLoggedIn");
+            if (isLoggedIn == 1)
+            {
+                return View("/Views/GameWindow/PlayerDetails.cshtml");
+            }
+            else
+                return View(login);
+           
         }
 
         [HttpGet]
         public IActionResult Register(RegisterViewModel regDetails)
         {
+
             return View(regDetails);
         }
 
@@ -62,19 +80,18 @@ namespace TictactoeWebApp.Controllers
             }
 
             if (mysqlEmail == email && mysqlPass == password)
+            {
+                _httpContextAccessor.HttpContext.Session.SetString("_email", email);
+                _httpContextAccessor.HttpContext.Session.SetInt32("isLoggedIn", 1);
                 return View("/Views/GameWindow/PlayerDetails.cshtml");
+            }
             else
                 return View("LoginPage");
-
-            ISession("LoggedInUserDetail") = new LoggedInUserDetail("Greg Smith", "gsmith", "admin");
-
+            
 
         }
 
-        private Login ISession(string v)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         [HttpPost]
         public async Task<IActionResult> Signup(RegisterViewModel regDetails)
@@ -117,10 +134,5 @@ namespace TictactoeWebApp.Controllers
             return View("LoginPage");
         }
 
-        public ISession LoginSession()
-        {
-            Session("LoggedInUserDetail") = new LoggedInUserDetail("Greg Smith", "gsmith", "admin");
-            return Ok();
-        }
     }
 }

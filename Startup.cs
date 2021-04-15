@@ -28,10 +28,12 @@ namespace TictactoeWebApp
             services.AddControllersWithViews();
 
             //Added framework services
-            services.AddMvc();
+            services.AddRazorPages();
 
             //Register database connection
             services.AddTransient<MySqlConnection>(_ => new MySqlConnection(Configuration["ConnectionStrings:Default"]));
+
+            services.AddHttpContextAccessor();
 
             // I added the cookie authentication
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -39,6 +41,17 @@ namespace TictactoeWebApp
                 {
                     options.LoginPath = "/Form/loginPage";
                 });
+
+            // To enable session middleware, add call to AddSession and implement memory cache
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+                options.IdleTimeout = TimeSpan.FromSeconds(5);
+                options.Cookie.Name = "cuki";
+                options.Cookie.MaxAge = TimeSpan.FromMinutes(5);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +74,9 @@ namespace TictactoeWebApp
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            // enable Session state for the application
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
