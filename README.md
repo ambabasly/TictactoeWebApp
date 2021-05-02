@@ -1,3 +1,1 @@
-# TictactoeWebApp
-
-A ASP.NET webapp started out of boredom. 
+An ASP.NET webapp started out of boredom. 
